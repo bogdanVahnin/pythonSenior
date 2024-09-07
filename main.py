@@ -42,3 +42,4 @@ print(Kirill)
 
 
 print(len(Anton))
+print(len(Kirill))
