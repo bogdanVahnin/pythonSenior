@@ -93,9 +93,9 @@ class Tvariny:
     alive = True
     breathe = True
     eat = True
-    age = 1
     weight = True
     height = True
+    slep = True
 
 
 
@@ -103,9 +103,7 @@ class Ptahy(Tvariny):
     fly = True
     legs = 2
     wings = 2
-    age = 3
-    weight = 2
-    height = 10
+
 
 class Gorobchik(Ptahy):
     def __init__(self, height, weight, age, sitiy):
@@ -114,30 +112,54 @@ class Gorobchik(Ptahy):
         self.age = age
         self.sitiy = sitiy
 
+class Sinichka(Ptahy):
+    def __init__(self, height, weight, age, sitiy):
+        self.weight = weight
+        self.height = height
+        self.age = age
+        self.sitiy = sitiy
+
+
 
 class Savci(Tvariny):
     legs = 4
-    age = 5
-    weight = 20
-    height = 100
+    ushi = 2
+    def __init__(self):
+        print("З'явилась нова тварина")
+
 
 class Sobaka(Savci):
-    def __init__(self, name, deti=None):
-
+    def __init__(self, name, weight, height, age,deti=None, breed=None):
+        self.weight = weight
+        self.height = height
         self.name = name
         self.deti = deti
+        self.breed = breed
+        self.age = age
 
     bigTeeth = True
 
+    def __str__(self):
+        if self.breed != None:
+            return f'Пса зовут - {self.name}, ему {self.age} лет, порода - {self.breed}'
+        else:
+            return f'Пса зовут - {self.name}, ему {self.age} лет'
+
 class Kityk(Savci):
-    def __init__(self, name, deti=None):
+    def __init__(self, name, weight, height, deti=None, breed=None):
+        self.weight = weight
+        self.height = height
         self.name = name
         self.deti = deti
+        self.breed = breed
 
     claws = True
 
-bobik = Sobaka('bobik')
+'''bobik = Sobaka('bobik')
 print(bobik.age)
 bobik.age = 40
-print(bobik.age)
+print(bobik.age)'''
 
+bobik_boss = Sobaka(name = 'bobik', weight= 30, age = 6, height=100, breed='Avcharka')
+
+print(bobik_boss)
